@@ -36,6 +36,19 @@ function ready() {
     var button = addCart[i];
     button.addEventListener("click", addCartClicked);
   }
+  // buy buttons
+  document
+    .getElementsByClassName("btn-buy")[0]
+    .addEventListener("click", buyButtonClicked);
+}
+// buy buttons
+function buyButtonClicked() {
+  alert("Anda perlu login terlebih dahulu!");
+  var cartContent = document.getElementsByClassName("cart-content")[0];
+  while (cartContent.hasChildNodes()) {
+    cartContent.removeChild(cartContent.firstChild);
+  }
+  updatetotal();
 }
 //remove items form cart
 function removeCartItem(event) {
@@ -102,9 +115,9 @@ function updatetotal() {
     var price = parseFloat(priceElement.innerText.replace("k", ""));
     var quantity = quantityElement.value;
     total = total + price * quantity;
-    //if price contain some rupiah value
-    total = Math.round(total * 100) / 100;
-
-    document.getElementsByClassName("total-price")[0].innerText = total + "k";
   }
+  //if price contain some rupiah value
+  total = Math.round(total * 100) / 100;
+
+  document.getElementsByClassName("total-price")[0].innerText = total + "k";
 }

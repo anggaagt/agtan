@@ -260,3 +260,12 @@ header {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 368px) {
+  .shop {
+    margin-top: 1rem !important;
+  }
+  .cart {
+    width: 280px;
+  }
+}
